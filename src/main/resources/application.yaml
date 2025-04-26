@@ -33,3 +33,16 @@ ru:
         - /swagger-ui.html
         - /v3/api-docs/**
         - /swagger-ui/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
